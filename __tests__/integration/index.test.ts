@@ -1,6 +1,3 @@
-import respExpress from "../../src/index";
-import axios from "axios";
-import * as queryString from 'query-string'
 import 'dotenv/config'
 import Juno from "../../src/index";
 
@@ -47,5 +44,4 @@ describe("Init", () => {
   });
 });
 
-afterAll(() => {
-});
+afterAll(() => {});
