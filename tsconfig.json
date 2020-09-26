@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "ES2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true,
+    "paths": {
+      "@/*": ["*"] // resolve all modules prefixed with `@/` from `src` directory
+    },
+    "types": ["jest", "node"],
+  },
+  "include": ["./src/**/*", "**/__tests__/*"],
+  "exclude": ["node_modules"]
+}

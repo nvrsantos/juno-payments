@@ -1,0 +1,70 @@
+{
+  "name": "juno-pagamentos",
+  "version": "1.0.0",
+  "description": "Package para facilitar utilização de juno pagamento node.js",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf lib/ && tsc",
+    "prepare": "npm run build",
+    "dev": "cd api && yarn dev",
+    "commit": "git-cz",
+    "release": "standard-version && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaomede/juno-payments.git"
+  },
+  "keywords": [
+    "juno",
+    "boleto facil",
+    "boleto",
+    "pagamento",
+    "typed",
+    "typescript",
+    "javascript"
+  ],
+  "author": "João Medeiros N. Junior",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaomede/juno-payments.git"
+  },
+  "homepage": "https://github.com/joaomede/juno-payments.git#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
+    "query-string": "^6.13.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "git-cz": "^4.7.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^26.4.0",
+    "typescript": "^4.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
