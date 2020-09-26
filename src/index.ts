@@ -1,30 +1,7 @@
 import axios from 'axios'
 import * as qs from 'query-string'
 import 'dotenv/config'
-import { CreatedPayment, GerarCobranca } from './interface'
-
-interface Config {
-  mode: string;
-  clientId: string;
-  clienteSecret: string;
-  token: string;
-}
-
-interface Headers {
-  Authorization: string;
-  'X-Api-Version': number;
-}
-
-interface Banks {
-  number: number;
-  name: string;
-}
-
-interface Saldo {
-  balance: string;
-  withheldBalance: string;
-  transferableBalance: string;
-}
+import { CreatedPayment, GerarCobranca, Headers, Banks, Config, Saldo } from './interface'
 
 /**
  * @name Juno

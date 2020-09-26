@@ -306,3 +306,51 @@ export interface CreatedPayment {
     }
   ];
 }
+
+
+/**
+ * Config Settings
+ *
+ * @export
+ * @interface Config
+ */
+export interface Config {
+  mode: string;
+  clientId: string;
+  clienteSecret: string;
+  token: string;
+}
+
+
+/**
+ * Cliente Headers
+ *
+ * @interface Headers
+ */
+export interface Headers {
+  Authorization: string;
+  'X-Api-Version': number;
+}
+
+
+/**
+ * @Banks
+ *
+ * @export
+ * @interface Banks
+ */
+export interface Banks {
+  number: number;
+  name: string;
+}
+
+/**
+ * @Saldo
+ *
+ * @interface Saldo
+ */
+export interface Saldo {
+  balance: string;
+  withheldBalance: string;
+  transferableBalance: string;
+}
