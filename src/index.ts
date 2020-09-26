@@ -1,22 +1,29 @@
 import axios from 'axios'
 import * as qs from 'query-string'
 import 'dotenv/config'
+import { CreatedPayment, GerarCobranca } from './interface'
 
 interface Config {
-  mode: string
-  clientId: string
-  clienteSecret: string
-  token: string
+  mode: string;
+  clientId: string;
+  clienteSecret: string;
+  token: string;
 }
 
 interface Headers {
-  Authorization: string,
-  'X-Api-Version': number
+  Authorization: string;
+  'X-Api-Version': number;
 }
 
 interface Banks {
-  number: number
-  name: string
+  number: number;
+  name: string;
+}
+
+interface Saldo {
+  balance: string;
+  withheldBalance: string;
+  transferableBalance: string;
 }
 
 /**
@@ -24,32 +31,28 @@ interface Banks {
  * @description Juno
  */
 class Juno {
-  private baseURLSandbox = 'https://sandbox.boletobancario.com/'
-  private baseURLProduction = 'https://api.juno.com.br/'
-  private mode = 'dev'
-  private clientId: string
-  private clientSecret: string
-  private hashToken = ''
+  private baseURLSandbox = 'https://sandbox.boletobancario.com/';
+  private baseURLProduction = 'https://api.juno.com.br/';
+  private mode = 'dev';
+  private clientId: string;
+  private clientSecret: string;
+  private hashToken = '';
 
   private headers: Headers = {
     Authorization: '',
     'X-Api-Version': 2
-  }
+  };
 
-  private token: string
-
-  private getTokenAcessEndPoint = 'authorization-server/oauth/token'
-
-  private endpointDigitalAccounts = 'api-integration/digital-accounts'
-  private endpointBanks = 'api-integration/data/banks'
-  private endpointCompanyTypes = 'api-integration/data/company-types'
+  private token: string;
 
   constructor (config: Config) {
     this.mode = config.mode
     this.clientId = config.clientId
     this.clientSecret = config.clienteSecret
     this.token = config.token
-    this.hashToken = Buffer.from(`${this.clientId}:${this.clientSecret}`).toString('base64')
+    this.hashToken = Buffer.from(
+      `${this.clientId}:${this.clientSecret}`
+    ).toString('base64')
   }
 
   /**
@@ -59,10 +62,10 @@ class Juno {
    * @returns {Promise<void>}
    * @memberof Juno
    */
-  private async getTokenAcess (): Promise<void> {
+  private async getTokenAcess (): Promise<Headers> {
     try {
       const result = await axios.post(
-        this.getUrl() + this.getTokenAcessEndPoint,
+        this.getUrl('authorization-server/oauth/token'),
         qs.stringify({ grant_type: 'client_credentials' }),
         {
           headers: {
@@ -71,8 +74,10 @@ class Juno {
           }
         }
       )
-
-      this.setHeaders(result.data.access_token)
+      return {
+        Authorization: 'Bearer ' + result.data.access_token,
+        'X-Api-Version': 2
+      }
     } catch (error) {
       throw new Error('Erro ao tentar gerar token de acesso')
     }
@@ -89,10 +94,10 @@ class Juno {
    * @returns {string}
    * @memberof Juno
    */
-  private getUrl (): string {
+  private getUrl (param: string): string {
     return this.mode === 'dev'
-      ? this.baseURLSandbox
-      : this.baseURLProduction
+      ? this.baseURLSandbox + param
+      : this.baseURLProduction + param
   }
 
   /**
@@ -108,16 +113,16 @@ class Juno {
 
   public async consultarConta (): Promise<void> {
     try {
-      await this.getTokenAcess()
       const result = await axios.post(
-        this.getUrl() + this.endpointDigitalAccounts,
+        this.getUrl('api-integration/digital-accounts'),
         {},
         {
           headers: {
-            ...this.getHeaders(),
+            ...(await this.getTokenAcess()),
             'X-Resource-Token': this.token
           }
-        })
+        }
+      )
       console.log(result)
     } catch (error) {
       console.log(error.response.data)
@@ -133,12 +138,12 @@ class Juno {
    */
   public async listarBancos (): Promise<Banks[]> {
     try {
-      await this.getTokenAcess()
       const result = await axios.get(
-        this.getUrl() + this.endpointBanks,
+        this.getUrl('api-integration/data/banks'),
         {
-          headers: this.getHeaders()
-        })
+          headers: { ...(await this.getTokenAcess()) }
+        }
+      )
       return result.data._embedded.banks
     } catch (error) {
       throw new Error(error.response.data.error)
@@ -146,21 +151,64 @@ class Juno {
   }
 
   /**
-   * Lista Bancos
+   * Lista Tipos de Empresas
    *
    * @returns {Promise<Banks[]>}
    * @memberof Juno
    */
   public async listarTiposEmpresa (): Promise<string[]> {
     try {
-      await this.getTokenAcess()
       const result = await axios.get(
-        this.getUrl() + this.endpointCompanyTypes,
+        this.getUrl('api-integration/data/company-types'),
         {
-          headers: this.getHeaders()
-
-        })
+          headers: { ...(await this.getTokenAcess()) }
+        }
+      )
       return result.data.companyTypes
+    } catch (error) {
+      throw new Error(error.response.data.error)
+    }
+  }
+
+  /**
+   * Consulta saldo
+   *
+   * @returns {Promise<Banks[]>}
+   * @memberof Juno
+   */
+  public async consultarSaldo (): Promise<Saldo> {
+    try {
+      const result = await axios.get(this.getUrl('api-integration/balance'), {
+        headers: {
+          ...(await this.getTokenAcess()),
+          'X-Resource-Token': this.token
+        }
+      })
+      return result.data
+    } catch (error) {
+      throw new Error(error.response.data.error)
+    }
+  }
+
+  /**
+   * Consulta saldo
+   *
+   * @returns {Promise<Banks[]>}
+   * @memberof Juno
+   */
+  public async gerarCobranca (formulario: GerarCobranca): Promise<CreatedPayment> {
+    try {
+      const result = await axios.post(
+        this.getUrl('api-integration/charges'),
+        formulario,
+        {
+          headers: {
+            ...(await this.getTokenAcess()),
+            'X-Resource-Token': this.token
+          }
+        }
+      )
+      return result.data._embedded
     } catch (error) {
       throw new Error(error.response.data.error)
     }
