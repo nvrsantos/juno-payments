@@ -263,50 +263,276 @@ export interface GerarCobranca {
   }
 }
 
-
-export interface CreatedPayment {
-  charges: [
-    {
-      id: string;
-      code: number;
-      reference: string;
-      dueDate: string;
-      link: string;
-      checkoutUrl: string;
-      installmentLink: string;
-      payNumber: string;
-      amount: number;
-      billetDetails: {
-        bankAccount: string;
-        ourNumber: string;
-        barcodeNumber: string;
-        portfolio: string;
-      };
-      payments: [
-        {
-          id: string;
-          chargeId: string;
-          date: string;
-          releaseDate: string;
-          amount: number;
-          fee: number;
-          type: string;
-          status: string;
-          transactionId: string;
-          failReason: string;
-        }
-      ];
-      _links: [
-        {
-          self: {
-            href: string;
-          };
-        }
-      ];
-    }
-  ];
+export interface QueryListarCobrancas {
+  /**
+   * Example: createdOnStart=yyyy-MM-dd
+   * Busca pela criação da cobrança a partir dessa data
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  createdOnStart?: string
+  /**
+   * Example: createdOnEnd=yyyy-MM-dd
+   * Busca pela criação da cobrança até
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  createdOnEnd?: string
+  /**
+   * Example: dueDateStart=yyyy-MM-dd
+   * Busca por vencimentos a partir dessa data
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  dueDateStart?: string
+  /**
+   * Example: dueDateEnd=yyyy-MM-dd 
+   * Busca por vencimentos a partir até essa data
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  dueDateEnd?: string
+  /**
+   * Example: paymentDateStart=yyyy-MM-dd
+   * Busca por pagamentos a partir dessa data
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  paymentDateStart?: string
+  /**
+   * Example: paymentDateEnd=yyyy-MM-dd
+   * Busca por pagamentos até essa data
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  paymentDateEnd?: string
+  /**
+   * Mostra cobranças que não foram ou estão arquivadas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showUnarchived?: boolean
+  /**
+   * Mostra cobranças que não foram ou estão arquivadas 
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showArchived?: boolean
+  /**
+   * Mostra cobranças que foram ou estão arquivadas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showDue?: boolean
+  /**
+   * Mostra cobranças vencidas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showNotDue?: boolean
+  /**
+   * Mostra cobranças que não estão vencidas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showPaid?: boolean
+  /**
+   * Mostra cobranças pagas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showNotPaid?: boolean
+  /**
+   * Mostra cobranças que não estão pagas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showCancelled?: boolean
+  /**
+   * Mostra cobranças canceladas
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showNotCancelled?: boolean
+  /**
+   * Mostra cobranças que foram baixadas manualmente
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showManualReconciliation?: boolean
+  /**
+   * Mostra cobranças que não foram baixadas manualmente
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showNotManualReconciliation?: boolean
+  /**
+   * Mostra cobranças que tiveram falha no pagamento. (Checkout transparente)
+   *
+   * @type {boolean}
+   * @memberof QueryListarCobrancas
+   */
+  showNotFailed?: boolean
+  /**
+   * Enum: "id" "dueDate" "amount" "paymentDate"
+   * Ordenação cobranças pelos filtros id, dueDate, amount e paymentDate
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  orderBy?: string
+  /**
+   * Ordenação cobranças ascendente ou descentente
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  orderAsc?: string
+  /**
+   * Quantidade de cobranças por página
+   *
+   * @type {number}
+   * @memberof QueryListarCobrancas
+   */
+  pageSize?: number
+  /**
+   * Número identificador da página
+   *
+   * @type {number}
+   * @memberof QueryListarCobrancas
+   */
+  page?: number
+  /**
+   * Define a partir de qual objeto charge será feita a busca
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  firstObjectId?: string
+  /**
+   * Define a partir de qual valor será feita a busca
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  firstValue?: string
+  /**
+   * Define até qual objeto charge será feita a busca
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  lastObjectId?: string
+  /**
+   * Define até qual valor será feita a busca
+   *
+   * @type {string}
+   * @memberof QueryListarCobrancas
+   */
+  lastValue?: string
 }
 
+export interface ListaCobrancaResponse {
+  _embedded: {
+    charges: {
+      id: string,
+      code: number,
+      reference: string,
+      dueDate: string,
+      link: string,
+      checkoutUrl: string,
+      installmentLink: string,
+      payNumber: string,
+      amount: 0,
+      billetDetails: {
+        bankAccount: string,
+        ourNumber: string,
+        barcodeNumber: string,
+        portfolio: string
+      },
+      payments: {
+        id: string,
+        chargeId: string,
+        date: string,
+        releaseDate: string,
+        amount: number,
+        fee: number,
+        type: string,
+        status: string,
+        transactionId: string,
+        failReason: string
+      }[],
+      _links: {
+        self: {
+          href: string
+        }
+      }[]
+    }[]
+  },
+  _links: {
+    self: {
+      href: string
+    },
+    next: {
+      href: string
+    },
+    previous: {
+      href: string
+    }
+  }[]
+}
+export interface CreatedPayment {
+  charges: {
+    id: string;
+    code: number;
+    reference: string;
+    dueDate: string;
+    link: string;
+    checkoutUrl: string;
+    installmentLink: string;
+    payNumber: string;
+    amount: number;
+    billetDetails: {
+      bankAccount: string;
+      ourNumber: string;
+      barcodeNumber: string;
+      portfolio: string;
+    };
+    payments: {
+      id: string;
+      chargeId: string;
+      date: string;
+      releaseDate: string;
+      amount: number;
+      fee: number;
+      type: string;
+      status: string;
+      transactionId: string;
+      failReason: string;
+    }[];
+    _links: {
+      self: {
+        href: string;
+      };
+    }[]
+  }[]
+}
 
 /**
  * Config Settings
@@ -321,7 +547,6 @@ export interface Config {
   token: string;
 }
 
-
 /**
  * Cliente Headers
  *
@@ -331,7 +556,6 @@ export interface Headers {
   Authorization: string;
   'X-Api-Version': number;
 }
-
 
 /**
  * @Banks
