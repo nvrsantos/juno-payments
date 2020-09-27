@@ -1,8 +1,8 @@
-import Juno from "../../../src";
+import Juno from '../../../src'
 
-export async function cobrancas(juno: Juno) {
+export function cobrancas (juno: Juno): void {
   describe('Cobranças - Transação', () => {
-    test("Gerar Cobranças - Cobranças", async (done) => {
+    test('Gerar Cobranças - Cobranças', async (done) => {
       try {
         const result = await juno.cobrancas.gerarCobranca({
           charge: {
@@ -10,15 +10,34 @@ export async function cobrancas(juno: Juno) {
             description: 'Compra de Produto X'
           },
           billing: {
-            name: "Cliente Comprador X",
+            name: 'Cliente Comprador X',
             document: '06983532422'
           }
         })
         expect(result).toBeTruthy()
-        done();
+        done()
       } catch (error) {
-        done(error);
+        done(error)
       }
-    });  
+    })
+
+    test('Listar Cobranças - Cobranças', async (done) => {
+      try {
+        const result = await juno.cobrancas.gerarCobranca({
+          charge: {
+            amount: '15.00',
+            description: 'Compra de Produto X'
+          },
+          billing: {
+            name: 'Cliente Comprador X',
+            document: '06983532422'
+          }
+        })
+        expect(result).toBeTruthy()
+        done()
+      } catch (error) {
+        done(error)
+      }
+    })
   })
 }

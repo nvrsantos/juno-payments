@@ -1,15 +1,15 @@
-import Juno from "../../../src";
+import Juno from '../../../src'
 
-export async function saldo(juno: Juno) {
+export function saldo (juno: Juno): void {
   describe('Saldo - Gestão', () => {
-    test("Consulta Saldo", async (done) => {
+    test('Consulta Saldo', async (done) => {
       try {
         const result = await juno.saldo.consultarSaldo()
         expect(result.balance).toBeTruthy()
-        done();
+        done()
       } catch (error) {
-        done(error);
+        done(error)
       }
-    });
+    })
   })
 }

@@ -1,6 +1,6 @@
-import Juno from "../../../src";
+import Juno from '../../../src'
 
-export async function contasDigitais(juno: Juno) {
+export function contasDigitais (juno: Juno): void {
   describe('Contas Digitais - Gestão', () => {
 
   })
