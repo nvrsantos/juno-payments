@@ -1,65 +1,26 @@
-import 'dotenv/config'
+import "dotenv/config";
 import Juno from "../../src/index";
+import { contasDigitais } from "./gestao/01_contasDigitais";
+import { dadosAdicionais } from "./gestao/02_dadosAdicionais";
+import { saldo } from "./gestao/05_saldo";
+import { cobrancas } from "./transcao/01_cobrancas";
 
 const juno = new Juno({
-  clientId: process.env.CLIENT_ID,
-  clienteSecret: process.env.CLIENT_SECRET,
-  mode: 'dev',
-  token: process.env.TOKEN
-})
+    clientId: process.env.CLIENT_ID,
+    clienteSecret: process.env.CLIENT_SECRET,
+    mode: "dev",
+    token: process.env.TOKEN,
+});
+export { juno };
 
 beforeAll(() => {});
 
 describe("Init", () => {
-  test("Lista Bancos - Dados Adicionais", async (done) => {
-    try {
-      const result = await juno.dadosAdicionais.listarBancos()
-      expect(result.length).toBeGreaterThanOrEqual(1)
-      done();
-    } catch (error) {
-      done(error);
-    }
-  });
-
-  test("Lista Tipos Empresas - Dados Adicionais", async (done) => {
-    try {
-      const result = await juno.dadosAdicionais.listarTiposEmpresa()
-      expect(result.length).toBeGreaterThanOrEqual(1)
-      done();
-    } catch (error) {
-      done(error);
-    }
-  });
-
-  test("Gerar Cobranças - Cobranças", async (done) => {
-    try {
-      const result = await juno.gerarCobranca({
-        charge: {
-          amount: '15.00',
-          description: 'Compra de Produto X'
-        },
-        billing: {
-          name: "Cliente Comprador X",
-          document: '06983532422'
-        }
-      })
-      expect(result).toBeTruthy()
-      done();
-    } catch (error) {
-      done(error);
-    }
-  });
-
-
-  test("Consulta Saldo - Saldo", async (done) => {
-    try {
-      const result = await juno.consultarSaldo()
-      expect(result.balance).toBeTruthy()
-      done();
-    } catch (error) {
-      done(error);
-    }
-  });
+  contasDigitais(juno)
+  dadosAdicionais(juno)
+  saldo(juno)
+  
+  cobrancas(juno)
 });
 
 afterAll(() => {});
