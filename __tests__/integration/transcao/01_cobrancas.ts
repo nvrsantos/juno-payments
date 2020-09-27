@@ -23,17 +23,8 @@ export function cobrancas (juno: Juno): void {
 
     test('Listar Cobranças - Cobranças', async (done) => {
       try {
-        const result = await juno.cobrancas.gerarCobranca({
-          charge: {
-            amount: '15.00',
-            description: 'Compra de Produto X'
-          },
-          billing: {
-            name: 'Cliente Comprador X',
-            document: '06983532422'
-          }
-        })
-        expect(result).toBeTruthy()
+        const result = await juno.cobrancas.listarCobrancas({})
+        expect(result._embedded.charges[0]).toBeTruthy()
         done()
       } catch (error) {
         done(error)
