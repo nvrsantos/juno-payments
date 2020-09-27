@@ -13,7 +13,7 @@ beforeAll(() => {});
 describe("Init", () => {
   test("Lista Bancos - Dados Adicionais", async (done) => {
     try {
-      const result = await juno.listarBancos()
+      const result = await juno.dadosAdicionais.listarBancos()
       expect(result.length).toBeGreaterThanOrEqual(1)
       done();
     } catch (error) {
@@ -23,7 +23,7 @@ describe("Init", () => {
 
   test("Lista Tipos Empresas - Dados Adicionais", async (done) => {
     try {
-      const result = await juno.listarTiposEmpresa()
+      const result = await juno.dadosAdicionais.listarTiposEmpresa()
       expect(result.length).toBeGreaterThanOrEqual(1)
       done();
     } catch (error) {

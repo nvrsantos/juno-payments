@@ -345,11 +345,11 @@ export interface Banks {
 }
 
 /**
- * @Saldo
+ * @SaldoResponse
  *
- * @interface Saldo
+ * @interface SaldoResponse
  */
-export interface Saldo {
+export interface SaldoResponse {
   balance: string;
   withheldBalance: string;
   transferableBalance: string;
