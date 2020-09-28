@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { stringify } from 'query-string'
 import { Authentication } from '../authentication'
-import { CreatedPayment, GerarCobranca, ListaCobrancaResponse, QueryListarCobrancas } from '../interface'
+import { GerarCobranca, QueryListarCobrancas } from '../types/interface'
+import { CreatedPayment, ListaCobrancaResponse } from '../types/response'
 
 /**
  * Cobranças - @Gestão

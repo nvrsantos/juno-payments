@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Authentication } from '../authentication'
-import { Banks } from '../interface'
+import { Banks } from '../types/interface'
 
 /**
  * Dados Adicionais - @Gestão

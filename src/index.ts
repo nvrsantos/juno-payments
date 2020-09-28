@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import { Authentication } from './authentication'
-import { Config } from './interface'
+import { Config } from './types/interface'
 import { DadosAdicionais } from './gestao/dadosAdicionais'
 import { Saldo } from './gestao/saldo'
 import { ContasDigitais } from './gestao/contasDigitais'
@@ -21,12 +21,16 @@ class Juno {
   private auth: Authentication
 
   // Gestão
-  public dadosAdicionais: DadosAdicionais
-  public saldo: Saldo
-  public contasDigitais: ContasDigitais
+  public gestao: {
+    dadosAdicionais: DadosAdicionais
+    saldo: Saldo
+    contasDigitais: ContasDigitais
+  }
 
   // Transação
-  public cobrancas: Cobrancas
+  public transacao: {
+    cobrancas: Cobrancas
+  }
 
   private token: string;
 
@@ -41,11 +45,15 @@ class Juno {
 
     this.auth = new Authentication(this.hashToken, this.getUrl())
 
-    this.contasDigitais = new ContasDigitais(this.auth, this.getUrl(), this.token)
-    this.dadosAdicionais = new DadosAdicionais(this.auth, this.getUrl())
-    this.saldo = new Saldo(this.auth, this.getUrl(), this.token)
+    this.gestao = {
+      contasDigitais: new ContasDigitais(this.auth, this.getUrl(), this.token),
+      dadosAdicionais: new DadosAdicionais(this.auth, this.getUrl()),
+      saldo: new Saldo(this.auth, this.getUrl(), this.token)
+    }
 
-    this.cobrancas = new Cobrancas(this.auth, this.getUrl(), this.token)
+    this.transacao = {
+      cobrancas: new Cobrancas(this.auth, this.getUrl(), this.token)
+    }
   }
 
   /**

@@ -1,5 +1,5 @@
 import { Authentication } from '@/authentication'
-import { SaldoResponse } from '@/interface'
+import { SaldoResponse } from '../types/response'
 import axios from 'axios'
 
 /**

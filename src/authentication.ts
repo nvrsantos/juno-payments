@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as qs from 'query-string'
-import { Headers } from './interface'
+import { Headers } from './types/interface'
 
 /**
  * Authentication - @SevidorDeAutorização

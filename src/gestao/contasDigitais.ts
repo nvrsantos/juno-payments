@@ -17,7 +17,7 @@ class ContasDigitais {
     this.token = token
   }
 
-  public async consultarConta (): Promise<void> {
+  public async consultarConta (): Promise<any> {
     try {
       const result = await axios.post(
         `${this.url}api-integration/digital-accounts`,
@@ -29,7 +29,7 @@ class ContasDigitais {
           }
         }
       )
-      console.log(result)
+      return result
     } catch (error) {
       console.log(error.response.data)
       throw new Error(error.response.data.error)
