@@ -4,7 +4,7 @@ export function dadosAdicionais (juno: Juno): void {
   describe('Dados Adicionais - Gestão', () => {
     test('Lista Bancos', async (done) => {
       try {
-        const result = await juno.dadosAdicionais.listarBancos()
+        const result = await juno.gestao.dadosAdicionais.listarBancos()
         expect(result.length).toBeGreaterThanOrEqual(1)
         done()
       } catch (error) {
@@ -14,7 +14,7 @@ export function dadosAdicionais (juno: Juno): void {
 
     test('Lista Tipos Empresas', async (done) => {
       try {
-        const result = await juno.dadosAdicionais.listarTiposEmpresa()
+        const result = await juno.gestao.dadosAdicionais.listarTiposEmpresa()
         expect(result.length).toBeGreaterThanOrEqual(1)
         done()
       } catch (error) {
