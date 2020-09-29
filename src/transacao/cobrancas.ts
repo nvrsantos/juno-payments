@@ -2,7 +2,12 @@ import axios from 'axios'
 import { stringify } from 'query-string'
 import { Authentication } from '../authentication'
 import { GerarCobranca, QueryListarCobrancas } from '../types/interface'
-import { ConsultarCobrancaResponse, CreatedPayment, ListaCobrancaResponse } from '../types/response'
+import {
+  CancelarCobrancaResponse,
+  ConsultarCobrancaResponse,
+  GerarCobrancaResponse,
+  ListaCobrancaResponse
+} from '../types/response'
 
 /**
  * Cobranças - @Gestão
@@ -40,7 +45,7 @@ class Cobrancas {
    * @returns {Promise<CreatedPayment>}
    * @memberof Cobrancas
    */
-  public async gerarCobranca (formulario: GerarCobranca): Promise<CreatedPayment> {
+  public async gerarCobranca (formulario: GerarCobranca): Promise<GerarCobrancaResponse> {
     try {
       const result = await axios.post(
         `${this.url}api-integration/charges`,
@@ -52,7 +57,7 @@ class Cobrancas {
           }
         }
       )
-      return result.data._embedded
+      return result.data
     } catch (error) {
       throw new Error(error.response.data.error)
     }
@@ -86,7 +91,6 @@ class Cobrancas {
       )
       return result.data
     } catch (error) {
-      console.log(error)
       throw new Error(error.response.data.error)
     }
   }
@@ -118,7 +122,38 @@ class Cobrancas {
       )
       return result.data
     } catch (error) {
-      console.log(error)
+      throw new Error(error.response.data.error)
+    }
+  }
+
+  /**
+   * Cancelar Cobrança
+   *
+   * Uma cobrança emitida emitida pode ser cancelada a qualquer momento desde que não tenha recebido pagamento.
+   *
+   * Isso é válido para cobranças de qualquer paymentType que estejam como active, ou seja, em aberto.
+   *
+   * Para transações que tenham sido capturadas, seu cancelamento deve ser feito através desse recurso.
+   *
+   * O sucesso no cancelamento retornará um 204 de sucesso sem qualquer conteúdo.
+   *
+   * @param {string} id
+   * @returns {Promise<CancelarCobrancaResponse>}
+   * @memberof Cobrancas
+   */
+  public async cancelarCobranca (id: string): Promise<CancelarCobrancaResponse> {
+    try {
+      const result = await axios.put(
+        `${this.url}api-integration/charges/${id}/cancelation`,
+        {
+          headers: {
+            ...(await this.auth.getTokenAcess()),
+            'X-Resource-Token': this.token
+          }
+        }
+      )
+      return result.data
+    } catch (error) {
       throw new Error(error.response.data.error)
     }
   }

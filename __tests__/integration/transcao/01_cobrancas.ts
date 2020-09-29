@@ -42,5 +42,16 @@ export function cobrancas (juno: Juno): void {
         done(error)
       }
     })
+
+    test('Cancelar cobrança - Cobranças', async (done) => {
+      try {
+        const lista = await juno.transacao.cobrancas.listarCobrancas({})
+        const result = await juno.transacao.cobrancas.cancelarCobranca(lista._embedded.charges[1].id)
+        console.log(result)
+        done()
+      } catch (error) {
+        done(error)
+      }
+    })
   })
 }
