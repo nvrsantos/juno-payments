@@ -30,5 +30,17 @@ export function cobrancas (juno: Juno): void {
         done(error)
       }
     })
+
+    test('Consultar cobrança - Cobranças', async (done) => {
+      try {
+        const lista = await juno.transacao.cobrancas.listarCobrancas({})
+        const result = await juno.transacao.cobrancas.consultarCobranca(lista._embedded.charges[0].id)
+
+        expect(result.amount).toBeTruthy()
+        done()
+      } catch (error) {
+        done(error)
+      }
+    })
   })
 }
