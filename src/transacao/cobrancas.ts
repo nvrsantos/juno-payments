@@ -2,7 +2,7 @@ import axios from 'axios'
 import { stringify } from 'query-string'
 import { Authentication } from '../authentication'
 import { GerarCobranca, QueryListarCobrancas } from '../types/interface'
-import { CreatedPayment, ListaCobrancaResponse } from '../types/response'
+import { ConsultarCobrancaResponse, CreatedPayment, ListaCobrancaResponse } from '../types/response'
 
 /**
  * Cobranças - @Gestão
@@ -77,6 +77,38 @@ class Cobrancas {
     try {
       const result = await axios.get(
         `${this.url}api-integration/charges?${stringify(query)}`,
+        {
+          headers: {
+            ...(await this.auth.getTokenAcess()),
+            'X-Resource-Token': this.token
+          }
+        }
+      )
+      return result.data
+    } catch (error) {
+      console.log(error)
+      throw new Error(error.response.data.error)
+    }
+  }
+
+  /**
+   * Consultar Cobrança
+   *
+   * Uma cobrança emitida emitida pode ser consultada a qualquer
+   * momento para que se obtenha seu estado atual.
+   *
+   * Para a consulta, utilize o ID da cobrança devolvido no momento da emissão.
+   *
+   * O ID seguirá o padrão de identidade prefixada conforme descrito na referência da API:
+   *
+   * @param {string} id
+   * @returns {Promise<ConsultarCobrancaResponse>}
+   * @memberof Cobrancas
+   */
+  public async consultarCobranca (id: string): Promise<ConsultarCobrancaResponse> {
+    try {
+      const result = await axios.get(
+        `${this.url}api-integration/charges/${id}`,
         {
           headers: {
             ...(await this.auth.getTokenAcess()),
