@@ -4,9 +4,14 @@
  * @interface SaldoResponse
  */
 export interface SaldoResponse {
-  balance: string;
-  withheldBalance: string;
-  transferableBalance: string;
+  balance: number,
+  withheldBalance: number,
+  transferableBalance: number,
+  _links: {
+    self: {
+      href: string
+    }
+  }[]
 }
 
 /**
