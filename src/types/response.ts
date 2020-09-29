@@ -141,3 +141,28 @@ export interface CreatedPayment {
     }[]
   }[]
 }
+
+/**
+ * All Banks
+ *
+ * @export
+ * @interface BanksRensponse
+ */
+export interface BanksRensponse {
+  _embedded: {
+    banks: {
+      number: string,
+      name: string,
+      _links: {
+        self: {
+          href: string
+        }
+      }[]
+    }[]
+  },
+  _links: {
+    self: {
+      href: string
+    }
+  }[]
+}

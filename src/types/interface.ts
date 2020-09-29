@@ -470,14 +470,3 @@ export interface Headers {
   Authorization: string;
   'X-Api-Version': number;
 }
-
-/**
- * @Banks
- *
- * @export
- * @interface Banks
- */
-export interface Banks {
-  number: number;
-  name: string;
-}
