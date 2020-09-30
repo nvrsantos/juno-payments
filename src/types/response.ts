@@ -182,3 +182,43 @@ export interface BanksRensponse {
     }
   }[]
 }
+
+/**
+ * Criar Plano - @response
+ *
+ * @export
+ * @interface CriarPlanoResponse
+ */
+export interface CriarPlanoResponse {
+  id: string
+  createdOn: string
+  name: string
+  frequency: string
+  status: string
+  amount: number
+  _links: {
+    href: string
+  }[]
+}
+
+/**
+ * Listar Planos - @response
+ *
+ * @export
+ * @interface ListarPlanosResponse
+ */
+export interface ListarPlanosResponse {
+  _embedded: {
+    plans: {
+      id: string
+      createdOn: string
+      name: string
+      frequency: string
+      status: string
+      amount: number
+      _links: {
+        href: string
+      }[]
+    }[]
+  }
+}

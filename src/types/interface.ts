@@ -1,5 +1,17 @@
+import { ContasDigitais } from '../gestao/contasDigitais'
 /* eslint-disable no-trailing-spaces */
 
+import { DadosAdicionais } from '../gestao/dadosAdicionais'
+import { Saldo } from '../gestao/saldo'
+import { Assinatura } from '../transacao/assinatura'
+import { Cobrancas } from '../transacao/cobrancas'
+
+/**
+ * Gerar Cobrança @payload
+ *
+ * @export
+ * @interface GerarCobranca
+ */
 export interface GerarCobranca {
   charge: {
     /**
@@ -263,6 +275,35 @@ export interface GerarCobranca {
   }
 }
 
+/**
+ * Criar Plano @payload
+ *
+ * @export
+ * @interface CriarPlano
+ */
+export interface CriarPlano {
+  /**
+   * Nome do Plano
+   *
+   * @type {string}
+   * @memberof CriarPlano
+   */
+  name: string
+  /**
+   * Valor, ex.: 100.00
+   *
+   * @type {string}
+   * @memberof CriarPlano
+   */
+  amount: string
+}
+
+/**
+ * Listar Cobrancas - @query
+ *
+ * @export
+ * @interface QueryListarCobrancas
+ */
 export interface QueryListarCobrancas {
   /**
    * Example: createdOnStart=yyyy-MM-dd
@@ -449,7 +490,7 @@ export interface QueryListarCobrancas {
 }
 
 /**
- * Config Settings
+ * Config Settings - @settings
  *
  * @export
  * @interface Config
@@ -462,11 +503,22 @@ export interface Config {
 }
 
 /**
- * Cliente Headers
+ * Cliente Headers - @headers @api
  *
  * @interface Headers
  */
 export interface Headers {
   Authorization: string;
   'X-Api-Version': number;
+}
+
+export type Gestao = {
+  dadosAdicionais: DadosAdicionais
+  saldo: Saldo
+  contasDigitais: ContasDigitais
+}
+
+export type Transacao = {
+  cobrancas: Cobrancas
+  assinatura: Assinatura
 }
