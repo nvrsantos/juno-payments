@@ -10,7 +10,7 @@ import {
 } from '../types/response'
 
 /**
- * Cobranças - @Gestão
+ * Cobranças - @Transação
  *
  * @class Cobrancas
  */

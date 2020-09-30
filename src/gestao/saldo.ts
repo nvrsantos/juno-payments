@@ -1,4 +1,4 @@
-import { Authentication } from '@/authentication'
+import { Authentication } from '../authentication'
 import { SaldoResponse } from '../types/response'
 import axios from 'axios'
 

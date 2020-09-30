@@ -1,6 +1,6 @@
+import { BanksRensponse } from '../types/response'
 import axios from 'axios'
 import { Authentication } from '../authentication'
-import { Banks } from '../types/interface'
 
 /**
  * Dados Adicionais - @Gestão
@@ -22,7 +22,7 @@ class DadosAdicionais {
    * @returns {Promise<Banks[]>}
    * @memberof Juno
    */
-  public async listarBancos (): Promise<Banks[]> {
+  public async listarBancos (): Promise<BanksRensponse[]> {
     try {
       const result = await axios.get(
         `${this.url}api-integration/data/banks`,
