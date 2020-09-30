@@ -1,8 +1,7 @@
-import Juno from '../../../src'
-
+import Juno from './../../../src/index'
 export function cobrancas (juno: Juno): void {
   describe('Cobranças - Transação', () => {
-    test('Gerar Cobranças - Cobranças', async (done) => {
+    test('Gerar Cobranças', async (done) => {
       try {
         const result = await juno.transacao.cobrancas.gerarCobranca({
           charge: {
@@ -21,7 +20,7 @@ export function cobrancas (juno: Juno): void {
       }
     })
 
-    test('Listar Cobranças - Cobranças', async (done) => {
+    test('Listar Cobranças', async (done) => {
       try {
         const result = await juno.transacao.cobrancas.listarCobrancas({})
         expect(result._embedded.charges[0]).toBeTruthy()
@@ -31,7 +30,7 @@ export function cobrancas (juno: Juno): void {
       }
     })
 
-    test('Consultar cobrança - Cobranças', async (done) => {
+    test('Consultar cobrança', async (done) => {
       try {
         const lista = await juno.transacao.cobrancas.listarCobrancas({})
         const result = await juno.transacao.cobrancas.consultarCobranca(lista._embedded.charges[0].id)
@@ -43,7 +42,7 @@ export function cobrancas (juno: Juno): void {
       }
     })
 
-    test('Cancelar cobrança - Cobranças', async (done) => {
+    test('Cancelar cobrança', async (done) => {
       try {
         const lista = await juno.transacao.cobrancas.listarCobrancas({})
         const result = await juno.transacao.cobrancas.cancelarCobranca(lista._embedded.charges[1].id)

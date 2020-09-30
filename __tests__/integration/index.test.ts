@@ -4,6 +4,7 @@ import { contasDigitais } from './gestao/01_contasDigitais'
 import { dadosAdicionais } from './gestao/02_dadosAdicionais'
 import { saldo } from './gestao/05_saldo'
 import { cobrancas } from './transcao/01_cobrancas'
+import { assinaturas } from './transcao/03_assinaturas'
 
 const juno = new Juno({
   clientId: process.env.CLIENT_ID,
@@ -11,9 +12,8 @@ const juno = new Juno({
   mode: 'dev',
   token: process.env.TOKEN
 })
-export { juno }
 
-beforeAll(() => {})
+export { juno }
 
 describe('Init', () => {
   contasDigitais(juno)
@@ -21,6 +21,5 @@ describe('Init', () => {
   saldo(juno)
 
   cobrancas(juno)
+  assinaturas(juno)
 })
-
-afterAll(() => {})
