@@ -1,4 +1,4 @@
-import Juno from '../../../src/Juno'
+import Juno from '../../../src'
 
 export function assinaturas (juno: Juno): void {
   describe('Assinaturas - Transação', () => {

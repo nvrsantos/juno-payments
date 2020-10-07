@@ -8,7 +8,7 @@ import { assinaturas } from './transcao/03_assinaturas'
 
 const juno = new Juno({
   clientId: process.env.CLIENT_ID,
-  clienteSecret: process.env.CLIENT_SECRET,
+  clientSecret: process.env.CLIENT_SECRET,
   mode: 'dev',
   token: process.env.TOKEN
 })
