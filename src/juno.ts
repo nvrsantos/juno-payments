@@ -26,10 +26,15 @@ class Juno {
 
   private token: string;
 
+  /**
+   * Create a Juno Instance.
+   * @param {Config} config
+   * @memberof Juno
+   */
   constructor (config: Config) {
     this.mode = config.mode
     this.clientId = config.clientId
-    this.clientSecret = config.clienteSecret
+    this.clientSecret = config.clientSecret
     this.token = config.token
     this.hashToken = Buffer.from(
       `${this.clientId}:${this.clientSecret}`

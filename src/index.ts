@@ -1,4 +1,4 @@
-import Juno from './Juno'
+import Juno from './juno'
 
 export default Juno
 export * from './types/interface'

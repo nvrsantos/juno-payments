@@ -498,7 +498,7 @@ export interface QueryListarCobrancas {
 export interface Config {
   mode: string;
   clientId: string;
-  clienteSecret: string;
+  clientSecret: string;
   token: string;
 }
 
