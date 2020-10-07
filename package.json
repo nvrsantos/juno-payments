@@ -1,6 +1,6 @@
 {
   "name": "juno-payments",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Package para facilitar utilização de juno pagamento node.js",
   "main": "./lib/index.js",
   "scripts": {
@@ -67,5 +67,8 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "directories": {
+    "lib": "lib"
+  }
 }

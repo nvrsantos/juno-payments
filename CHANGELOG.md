@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/joaomede/juno-payments/compare/v1.1.0...v1.1.1) (2020-10-07)
+
+
+### Bug Fixes
+
+* 🐛 updated enviromnet variables ([f92e4aa](https://github.com/joaomede/juno-payments/commit/f92e4aaa818dc8152e909cdd575c64765a6a10ac))
+
 ## 1.1.0 (2020-09-30)
 
 
