@@ -1,5 +1,5 @@
 # Juno Payments - (Não Oficial)
-Library para integração de pagamentos Juno (antigo boleto fácil), está library não é oficial e tem como objetivo facilitar integração com a API v2 da Juno, contribuições são bem vindas
+Library para integração de pagamentos Juno (antigo boleto fácil), esta library não é oficial e tem como objetivo facilitar integração com a API v2 da Juno, contribuições são bem vindas
 
 
 ## Install

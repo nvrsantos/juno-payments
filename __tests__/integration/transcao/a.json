@@ -1,0 +1,524 @@
+{
+  "_embedded": {
+    "charges": [
+      {
+        "id": "chr_FC29279272B0F0DA03DF787EFBBC5326",
+        "code": 136006782,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822606:m:2508f47a01802dcf0272605fd2838b7f98cf1a4b87b36562004237c517f5882b",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/883400A6CC9E84EEB0F985027A0D88D97EFBBBD7873ABF54",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006782:df20f7ba72c7f40cc52ba842ccf97fce7a830ccdda7825f7b247491be5730346",
+        "payNumber": "BOLETO TESTE - Não é válido para pagamento",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006782-2",
+          "barcodeNumber": "38393840100000015000000085120000001360067821",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_FC29279272B0F0DA03DF787EFBBC5326"
+          }
+        }
+      },
+      {
+        "id": "chr_93421876172552E2F2C0962CEFA6D8DE",
+        "code": 136006771,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822599:m:3c97314fbfb388328142b0de5c4289507e5600247e4247b2a7bf51d95206fde0",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/CC4987880FF1D223DC13A87C908E0CC3693E401FD4051BED",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006771:1ab6a4a5ec017af153d30aaee2bc8e1cbbb00cb46d74db14398115d034dbdc71",
+        "payNumber": "BOLETO TESTE - Não é válido para pagamento",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006771-7",
+          "barcodeNumber": "38391840100000015000000085120000001360067711",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_93421876172552E2F2C0962CEFA6D8DE"
+          }
+        }
+      },
+      {
+        "id": "chr_FC3CD5B2264502948DBADA91F6D4CECE",
+        "code": 136006766,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822595:m:f530a82a5203828a02cc1078ac4b35c2d191809649a6b19eb94ccb3360611e8e",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/9E71E4ADDD95BB07654EBA2C588601DEFE3B13DB52BC71A6",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006766:73db80eaf9ae46232619a704cd573e80cf8ce6efb01f2156ee01629225a21a79",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006766-1",
+          "barcodeNumber": "38391840100000015000000085120000001360067661",
+          "portfolio": "0001"
+        },
+        "payments": [
+          {
+            "id": "pay_37457A4EBB05EFA2",
+            "chargeId": "chr_FC3CD5B2264502948DBADA91F6D4CECE",
+            "date": "2020-10-03",
+            "releaseDate": "2020-10-04",
+            "amount": 15,
+            "fee": 3.9,
+            "type":"BOLETO",
+            "status ": "CONFIRMED",
+            "transactionId": null,
+            "failReason": null
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_FC3CD5B2264502948DBADA91F6D4CECE"
+          }
+        }
+      },
+      {
+        "id": "chr_FC3CD5B226450294239720A4E6F09436",
+        "code": 136006765,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822594:m:8cbbd02558a54f7a559a82b5e10b7226af543c209711ea0aa468b30cb6642599",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/32A343FD1CE7FFD6442D3CF9E356CB0BED3425983F5B255A",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006765:b2251214d478c18bbf7c6a235f05eeafff163d97d1b72f19bdaa36fbec8e57e7",
+        "payNumber": "BOLETO CANCELADO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006765-2",
+          "barcodeNumber": "38392840100000015000000085120000001360067651",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_FC3CD5B226450294239720A4E6F09436"
+          }
+        }
+      },
+      {
+        "id": "chr_FC3CD5B226450294AF80B2BE2F5D66C7",
+        "code": 136006764,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822593:m:f23610cbf0564af9e93f72897654a7e20592a975700c52ea8b8d0d8beaac36fe",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/CE9127BFCC03018D3463533C7D5758D959558E68CDC28B73",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006764:895a012d1c0d77454e78ccec8a09fc40d2e94a9290858b2dff007f3b5452237e",
+        "payNumber": "BOLETO CANCELADO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006764-4",
+          "barcodeNumber": "38395840100000015000000085120000001360067641",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_FC3CD5B226450294AF80B2BE2F5D66C7"
+          }
+        }
+      },
+      {
+        "id": "chr_1ACFD1EF4E9630264DEDF9214D70DC0A",
+        "code": 136006618,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822496:m:4d58c34edd57f60240e9c6d087d55b9d93fc2dd18c7290cd89bcfdef3e75d1f3",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/D83D0F8E7AAB89FC25E9ED061482098F588530859B0FB769",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006618:77ee06857fd8077fd8f59435b98418c6e067db6864abf227217d4ad84ccb7eb0",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006618-4",
+          "barcodeNumber": "38397840100000015000000085120000001360066181",
+          "portfolio": "0001"
+        },
+        "payments": [
+          {
+            "id": "pay_132D3CB45678B40D",
+            "chargeId": "chr_1ACFD1EF4E9630264DEDF9214D70DC0A",
+            "date": "2020-10-03",
+            "releaseDate": "2020-10-04",
+            "amount": 15,
+            "fee": 3.9,
+            "type": "BOLETO",
+            "status": "CONFIRMED",
+            "transactionId": null,
+            "failReason": null
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_1ACFD1EF4E9630264DEDF9214D70DC0A"
+          }
+        }
+      },
+      {
+        "id": "chr_1ACFD1EF4E963026785E7268300E72D3",
+        "code": 136006617,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822495:m:6b6448a585b32e90e8de7c27250fcd66458133de7263cd29a5421531282d0bdf",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/C7816187B0ED18C76C37EB87BDD4E2B66A9E4FE19DE25B1B",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006617:406d7a4472fe6e0f088e86e05d36d7d33d159386b3dd27503046e0f98842012e",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006617-6",
+          "barcodeNumber": "38391840100000015000000085120000001360066171",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_1ACFD1EF4E963026785E7268300E72D3"
+          }
+        }
+      },
+      {
+        "id": "chr_1ACFD1EF4E963026DB7298CD9F9AE9F0",
+        "code": 136006614,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822492:m:ea442522a770bce157edf337949f5bdb5ff0817255d7f3ac25aa5c2200fe7243",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/B34E7943F0DF849C6D067E26CBC83BD4CED0C754F0F7154B",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006614:9bbdfc4a8ed00202d5f017631e6e3c7d95bcba325461497103246cead818dc56",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006614-1",
+          "barcodeNumber": "38398840100000015000000085120000001360066141",
+          "portfolio": "0001"
+        },
+        "payments": [
+          {
+            "id": "pay_86CFF0AAC5A4466C",
+            "chargeId": "chr_1ACFD1EF4E963026DB7298CD9F9AE9F0",
+            "date": "2020-10-03",
+            "releaseDate": "2020-10-04",
+            "amount": 15,
+            "fee": 3.9,
+            "type": "BOLETO",
+            "status": "CONFIRMED",
+            "transactionId": null,
+            "failReason": null
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_1ACFD1EF4E963026DB7298CD9F9AE9F0"
+          }
+        }
+      },
+      {
+        "id": "chr_1ACFD1EF4E963026F632324B327535A1",
+        "code": 136006613,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822491:m:8386bc520c1dd9e7cf53183c85a09f8a218a65ebcd3cbd34c2d19337995bae01",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/A14A45F7FD2CC6CBCC7515721F71325E71B56A1ED8E5C7AC",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006613:95b1bff0f1b0541091a732fce54dc71b1ec186e88c68801dbb8606faec2fe7c9",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006613-3",
+          "barcodeNumber": "38391840100000015000000085120000001360066131",
+          "portfolio": "0001"
+        },
+        "payments": [
+          {
+            "id": "pay_CDD95F41CFDBA35B",
+            "chargeId": "chr_1ACFD1EF4E963026F632324B327535A1",
+            "date": "2020-10-03",
+            "releaseDate": "2020-10-04",
+            "amount": 15,
+            "fee": 3.9,
+            "type": "BOLETO",
+            "status": "CONFIRMED",
+            "transactionId": null,
+            "failReason": null
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_1ACFD1EF4E963026F632324B327535A1"
+          }
+        }
+      },
+      {
+        "id": "chr_1ACFD1EF4E96302607E712D5A59096D1",
+        "code": 136006611,
+        "reference": "",
+        "dueDate": "2020-10-07",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=822489:m:433a7450f68968e99e89b39482fecbb611e884c8498cd6f5354521c01dc5db9d",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/091D904A407833CDD9181CC14170F34B908F1A86CC61B323",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136006611:7bd17c1f995a9f1081fe3c655eddb17a1b758afd2651147e6e72605e404b01db",
+        "payNumber": "BOLETO PAGO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136006611-7",
+          "barcodeNumber": "38396840100000015000000085120000001360066111",
+          "portfolio": "0001"
+        },
+        "payments": [
+          {
+            "id": "pay_7AC04549E6316A68",
+            "chargeId": "chr_1ACFD1EF4E96302607E712D5A59096D1",
+            "date": "2020-10-03",
+            "releaseDate": "2020-10-04",
+            "amount": 15,
+            "fee": 3.9,
+            "type": "BOLETO",
+            "status": "CONFIRMED",
+            "transactionId": null,
+            "failReason": null
+          }
+        ],
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_1ACFD1EF4E96302607E712D5A59096D1"
+          }
+        }
+      },
+      {
+        "id": "chr_E49959C4A9F36D8C36FE733A722E05D3",
+        "code": 136002922,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=819240:m:ad52e6407190a82235ef5fb7745ef99cc114dfeaec767d0df0ae44b87a2398a4",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/907D72CC62CE05FFB10BACF0DE514003F68B1D096AFAA112",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002922:2be92ab0248a386836bebaebc4dd0e8e04cd5200c2c0233c62a17031aad49f78",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002922-1",
+          "barcodeNumber": "38392839600000015000000085120000001360029221",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_E49959C4A9F36D8C36FE733A722E05D3"
+          }
+        }
+      },
+      {
+        "id": "chr_E49959C4A9F36D8CE6FA5D2DF3D9821A",
+        "code": 136002921,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=819239:m:b4bc19f31d8e1bdd975cb966e469488a1294f9f0fb5ec98ec571fefbb931d135",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/528D9B9FC901D18701EBBB7BFC2E9AFC055B493DB5685C13",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002921:d346e5fe755048d51384476352011409ad2c43f8b60a722d3ef245cd702e786b",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002921-1",
+          "barcodeNumber": "38395839600000015000000085120000001360029211",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_E49959C4A9F36D8CE6FA5D2DF3D9821A"
+          }
+        }
+      },
+      {
+        "id": "chr_E49959C4A9F36D8CA8D896DD14B9BA94",
+        "code": 136002920,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=819238:m:dead953f0a0196f03ff3c8f13edd5c8378d33a2932759595cf0cf24310654f03",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/BFEF6D89FDA2265692D788FBB0C2E78372B07FC3B44CC704",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002920:f1e1ca1bbb1df63f0f3485e173a40bbaa6b5fb4f35bf6020c529e1622907758a",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002920-3",
+          "barcodeNumber": "38398839600000015000000085120000001360029201",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_E49959C4A9F36D8CA8D896DD14B9BA94"
+          }
+        }
+      },
+      {
+        "id": "chr_01D54400D95AD05B9DAA23AF279956CB",
+        "code": 136002919,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=819237:m:40d2fcd48861ded570877057507ce52747e5cac64cce86452e2ca29963856732",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/98D5BD1920B1131AA430231A0D4DB5FACA7171120634D7F9",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002919:b346b1bf381ecfdb894d010b99e2f352a8796a234c169284502d7d6084c10387",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002919-1",
+          "barcodeNumber": "38397839600000015000000085120000001360029191",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_01D54400D95AD05B9DAA23AF279956CB"
+          }
+        }
+      },
+      {
+        "id": "chr_01D54400D95AD05B2B5C1ADD80D1FBBC",
+        "code": 136002917,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=819235:m:202bd3c38999044a60dbf7a570bbe4067258c936b4c182d27f721dba36ab26f1",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/A8D2BD34A7DCE0A283BE43BC12850984CBF59E066B7BC2FF",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002917:eaa22f3d85877b796c57c4fcee07118d2811e5699bfc725bfea7a168615bd6f7",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002917-3",
+          "barcodeNumber": "38392839600000015000000085120000001360029171",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_01D54400D95AD05B2B5C1ADD80D1FBBC"
+          }
+        }
+      },
+      {
+        "id": "chr_4DA1551C7983268B1FCC5DDB263883A4",
+        "code": 136002151,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=818600:m:b6c5f9a533ad50b70be9aefb855bbb1dc9ba11eb24f0dd02e74a5301256ac13b",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/BF7041B0A14D155A696B194071202400A833A59F6C9EB088",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002151:55c7d4d48d2ffb5aa00414ecbcc2839d7f04d48481167570b63fc2afc26a2441",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002151-2",
+          "barcodeNumber": "38391839600000015000000085120000001360021511",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_4DA1551C7983268B1FCC5DDB263883A4"
+          }
+        }
+      },
+      {
+        "id": "chr_3A7136DB2B56D1CAE6C75BB9ACFF9A5A",
+        "code": 136002149,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=818598:m:ed998dab0e166c8270d89f05e76ea60008bd97069d5d1eb72bc7a770765e87b3",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/BD41E31B5772C533E92ECFFB3D25AA8504EB2DF4A988E3CD",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002149:178cccc4723a7488209ae1cdde1e205b03ee61c500df1c8301da5c46709ed1a5",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002149-1",
+          "barcodeNumber": "38392839600000015000000085120000001360021491",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_3A7136DB2B56D1CAE6C75BB9ACFF9A5A"
+          }
+        }
+      },
+      {
+        "id": "chr_3A7136DB2B56D1CAA862F43CA55FE55C",
+        "code": 136002148,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=818597:m:f092da768b69131a8d3e637fc14045cd8156283023f55f4efa974d7c63191176",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/CF313E9E19FD9EBB6B11613DE3F43B7F6E7B5E693CF85D91",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002148:6a229785080a5f7ef8828ddf5f5739a84e1a09169332cca6c29b37620fd5b5db",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002148-2",
+          "barcodeNumber": "38395839600000015000000085120000001360021481",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_3A7136DB2B56D1CAA862F43CA55FE55C"
+          }
+        }
+      },
+      {
+        "id": "chr_3A7136DB2B56D1CA8E453ABC62910338",
+        "code": 136002147,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=818596:m:2cb3e33044e365499e236c7bf964bf5cb08c730953185c16c19fb0b6d3377adb",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/502CD67042491D264EAE9CADDDBE0905E538781007D8042C",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002147:ad931fa65fa4fa2d0902a945a679849c145f0fdac261c5d27e44ea521ad9add4",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002147-4",
+          "barcodeNumber": "38398839600000015000000085120000001360021471",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_3A7136DB2B56D1CA8E453ABC62910338"
+          }
+        }
+      },
+      {
+        "id": "chr_3A7136DB2B56D1CAFCABF330AAEDE3B7",
+        "code": 136002146,
+        "reference": "",
+        "dueDate": "2020-10-02",
+        "link": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=818595:m:e1e775450df0655a4ab4207148b3e2cca2a94426b400e09688264572996ed6af",
+        "checkoutUrl": "https://pay-sandbox.juno.com.br/checkout/0BF69CD06B6F80BFA3AED4A3C693A2B1DAC38EB846FC9FBF",
+        "installmentLink": "https://pay-sandbox.juno.com.br/charge/boleto.pdf?token=136002146:f16742e286eb93553fed8ab0594a4eb20c1ddf07bbdfcf5111e2de633820b262",
+        "payNumber": "BOLETO VENCIDO",
+        "amount": 15,
+        "billetDetails": {
+          "bankAccount": "0001/1000008512-7",
+          "ourNumber": "000000136002146-6",
+          "barcodeNumber": "38391839600000015000000085120000001360021461",
+          "portfolio": "0001"
+        },
+        "_links": {
+          "self": {
+            "href": "https://sandbox.boletobancario.com/api-integration/charges/chr_3A7136DB2B56D1CAFCABF330AAEDE3B7"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://sandbox.boletobancario.com/api-integration/charges?page=1&pageSize=20"
+    },
+    "next": {
+      "href": "https://sandbox.boletobancario.com/api-integration/charges?lastObjectId=chr_3A7136DB2B56D1CAFCABF330AAEDE3B7&lastValue=chr_3A7136DB2B56D1CAFCABF330AAEDE3B7&page=2&pageSize=20"
+    }
+  }
+}
