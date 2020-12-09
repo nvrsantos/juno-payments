@@ -101,7 +101,7 @@ export interface ConsultarCobrancaResponse {
   _links: {
     self: {
       href: string
-      }
+    }
   }[]
 }
 
@@ -124,38 +124,58 @@ export interface CancelarCobrancaResponse {
  * @interface GerarCobrancaResponse
  */
 export interface GerarCobrancaResponse {
-  charge: {
-    description: string,
-    references: string[],
-    totalAmount: string,
-    amount: string
-    dueDate: string,
-    installments: number
-    maxOverdueDays: number
-    fine: number
-    interest: string
-    discountAmount: string
-    discountDays: number
-    paymentTypes: string[]
-    paymentAdvance: boolean
-    feeSchemaToken: string
-    split: {
-      recipientToken: string,
+  _embedded: {
+    charges: Array<{
+      id: string,
+      code: number,
+      reference: string,
+      dueDate: string,
+      link: string,
+      checkoutUrl: string,
+      installmentLink: string,
+      payNumber: string,
       amount: number,
-      percentage: number,
-      amountRemainder: boolean,
-      chargeFee: boolean
-    }[]
-  }
-  billing: {
-    name: string
-    document: string
-    email: string
-    secondaryEmail: string
-    phone: string
-    birthDate: string
-    notify: boolean
-  }
+      status: "ACTIVE" | "CANCELLED" | "MANUAL_RECONCILIATION" | "FAILED" | "PAID",
+
+      billetDetails: {
+        bankAccount: string,
+        ourNumber: string,
+        barcodeNumber: string,
+        portfolio: string
+      },
+
+      payments: Array<{
+        id: string,
+        chargeId: string,
+        date: string,
+        releaseDate: string,
+        amount: number,
+        fee: number,
+        type: string,
+        status: "CONFIRMED" | string,
+        transactionId: string,
+        failReason: string
+      }>,
+
+      pix: Array<{
+        id: string,
+        qrcodeInBase64: string,
+        imageInBase64: string
+      }>,
+
+      _links: Array<{
+        self: {
+          href: string
+        }
+      }>
+    }>
+  },
+
+  _links: Array<{
+    self: {
+      href: string
+    }
+  }>
 }
 
 /**
@@ -221,4 +241,82 @@ export interface ListarPlanosResponse {
       }[]
     }[]
   }
+}
+
+/**
+ * Constultar Plano - @response
+ * 
+ * @export
+ * @interface ConstultarPlanoResponse
+ */
+export interface ConstultarPlanoResponse {
+  id: string,
+  createdOn: string,
+  name: string,
+  frequency: "MONTHLY",
+  status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+  amount: number,
+  _links: Array<{
+    href: string
+  }>
+}
+
+/**
+ * Criar Assinatura - @response
+ * 
+ * @export
+ * @interface CriarAssinaturaResponse
+ */
+export interface CriarAssinaturaResponse {
+  id: string,
+  createdOn: string,
+  dueDay: string,
+  status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+  startsOn: string,
+  nextBillingDate: string,
+  _links: Array<{
+    href: string
+  }>
+}
+
+/**
+ * Listar Assinaturas - @response
+ * 
+ * @export
+ * @interface ListarAssinaturasResponse
+ */
+export interface ListarAssinaturasResponse {
+  _embedded: {
+    subscriptions: Array<{
+      id: string,
+      createdOn: string,
+      dueDay: string,
+      status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+      startsOn: string,
+      nextBillingDate: string,
+      _links: Array<{
+        href: string
+      }>
+    }>
+  }
+}
+
+/**
+ * Consultar Assinatura - @response
+ * 
+ * @export
+ * @interface ConsultarAssinaturaResponse
+ */
+export interface ConsultarAssinaturaResponse {
+  id: string,
+  createdOn: string,
+  dueDay: string,
+  status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+  startsOn: string,
+  nextBillingDate: string,
+  _links: [
+    {
+      href: string
+    }
+  ]
 }
