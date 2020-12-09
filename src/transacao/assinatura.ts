@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import { stringify } from 'query-string'
 import { Authentication } from '../authentication'
 import { CriarPlano } from '../types/interface'
 import {
