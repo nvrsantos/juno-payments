@@ -1,10 +1,40 @@
-import { ContasDigitais } from '../gestao/contasDigitais'
 /* eslint-disable no-trailing-spaces */
 
+import { ContasDigitais } from '@/gestao/contasDigitais'
 import { DadosAdicionais } from '../gestao/dadosAdicionais'
 import { Saldo } from '../gestao/saldo'
 import { Assinatura } from '../transacao/assinatura'
 import { Cobrancas } from '../transacao/cobrancas'
+import { Pagamentos } from '../transacao/pagamentos'
+
+/**
+ * Gerar Hash Cartão @payload
+ * 
+ * @export
+ * @interface GerarHashCartao
+ */
+export interface GerarHashCartao {
+  /**
+   * Nome do Titular do Cartão
+   */
+  holderName: string,
+  /**
+   * Número do Cartão
+   */
+  cardNumber: string,
+  /**
+   * Codigo de Segurança do Cartão (CVV)
+   */
+  securityCode: string,
+  /**
+   * Mês de Vencimento do Cartão
+   */
+  expirationMonth: string,
+  /**
+   * Ano de Vencimento do Cartão
+   */
+  expirationYear: string
+}
 
 /**
  * Gerar Cobrança @payload
@@ -148,7 +178,7 @@ export interface GerarCobranca {
      * @type {number}
      * @memberof GerarCobranca
      */
-    paymentTypes?: string[]
+    paymentTypes?: ["BOLETO"] | ["BOLETO_PIX"] | ["CREDIT_CARD"] | ["BOLETO, CREDIT_CARD"] | ["BOLETO_PIX", "CREDIT_CARD"] | string[]
     /**
      * Define se o pagamento via cartão de crédito será antecipado
      *
@@ -296,6 +326,123 @@ export interface CriarPlano {
    * @memberof CriarPlano
    */
   amount: string
+}
+
+/**
+ * Criar Assinatura @payload
+ * 
+ * @export
+ * @interface CriarAssinatura
+ */
+export interface CriarAssinatura {
+  dueDay: number,
+  planId: string,
+  chargeDescription: string,
+  creditCardDetails: {
+    creditCardId?: string,
+    creditCardHash?: string
+  },
+  billing: {
+    /**
+     * Nome completo do comprador
+     *
+     * **Formato:** Livre com até 80 caracteres
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    name: string
+    /**
+     * CPF ou CNPJ do comprador
+     *
+     * **Formato:** CPF ou CNPJ válido, aceito com ou sem pontuação
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    document: string
+    /**
+     * Endereço de email do comprador
+     *
+     * **Formato:** Endereço de email válido, com até 80 caracteres
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    email?: string
+    /**
+     * Endereço de email secundário do comprador
+     *
+     * **Formato:** Endereço de email secundário válido, com até 80 caracteres
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    secondaryEmail?: string
+    /**
+     * Telefone do comprador
+     *
+     * **Formato:** Livre com até 25 caracteres
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    phone?: string
+    /**
+     * Nome da rua/logradouro do comprador
+     *
+     * **Formato:** Livre com até 100 caracteres
+     * @type {string}
+     * @memberof GerarCobranca
+     */
+    birthDate?: string
+    /**
+     * Define se o Juno enviará emails de notificação sobre esta cobrança para o comprador
+     * O email com o boleto ou carnê só será enviado ao comprador se este parâmetro for igual a **true** e o endereço de email do comprador estiver presente
+     * O lembrete de vencimento só será enviado se as condições acima forem verdadeiras e se na configuração do Favorecido os lembretes estiverem ativados
+     *
+     * **Formato:** true ou false  
+     * **Valor padrão:** true
+     * @type {boolean}
+     * @memberof GerarCobranca
+     */
+    notify?: boolean
+    /**
+     * Endereço de cobrança
+     */
+    address?: {
+      /**
+       * Nome da rua/logradouro do comprador
+       */
+      street: string,
+      /**
+       * Numero da casa
+       */
+      number: string,
+      /**
+       * Complemento
+       */
+      complement?: string,
+      /**
+       * Bairro
+       */
+      neighborhood?: string,
+      /**
+       * Cidade
+       */
+      city: string,
+      /**
+       * Estado em sigla de Unidade Federativa (UF).
+       */
+      state: string,
+      /**
+       * Código de Endereçamento Postal no Brasil (CEP).
+       */
+      postCode: string
+    }
+  }
+  split?: Array<{
+    recipientToken: string,
+    amount: number,
+    percentage: number,
+    amountRemainder: boolean,
+    chargeFee: boolean
+  }>
 }
 
 /**
@@ -500,6 +647,7 @@ export interface Config {
   clientId: string;
   clientSecret: string;
   token: string;
+  publicToken: string;
 }
 
 /**
@@ -513,12 +661,13 @@ export interface Headers {
 }
 
 export type Gestao = {
+  contasDigitais: ContasDigitais,
   dadosAdicionais: DadosAdicionais
   saldo: Saldo
-  contasDigitais: ContasDigitais
 }
 
 export type Transacao = {
   cobrancas: Cobrancas
-  assinatura: Assinatura
+  assinatura: Assinatura,
+  pagamentos: Pagamentos
 }
