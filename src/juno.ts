@@ -6,6 +6,7 @@ import { Saldo } from './gestao/saldo'
 import { ContasDigitais } from './gestao/contasDigitais'
 import { Cobrancas } from './transacao/cobrancas'
 import { Assinatura } from './transacao/assinatura'
+import { Pagamentos } from './transacao/pagamentos'
 
 /**
  * @name Juno
@@ -25,6 +26,7 @@ class Juno {
   public transacao: Transacao
 
   private token: string;
+  private publicToken: string;
 
   /**
    * Create a Juno Instance.
@@ -36,6 +38,7 @@ class Juno {
     this.clientId = config.clientId
     this.clientSecret = config.clientSecret
     this.token = config.token
+    this.publicToken = config.publicToken
     this.hashToken = Buffer.from(
       `${this.clientId}:${this.clientSecret}`
     ).toString('base64')
@@ -50,7 +53,8 @@ class Juno {
 
     this.transacao = {
       cobrancas: new Cobrancas(this.auth, this.getUrl(), this.token),
-      assinatura: new Assinatura(this.auth, this.getUrl(), this.token)
+      assinatura: new Assinatura(this.auth, this.getUrl(), this.token),
+      pagamentos: new Pagamentos(this.auth, this.getUrl(), this.publicToken, this.mode)
     } as Transacao
   }
 
