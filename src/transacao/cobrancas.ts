@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Authentication } from '../authentication'
 import { GerarCobranca, QueryListarCobrancas } from '../types/interface'
 import {
-  CancelarCobrancaResponse,
   ConsultarCobrancaResponse,
   GerarCobrancaResponse,
   ListaCobrancaResponse
@@ -138,10 +137,10 @@ class Cobrancas {
    * O sucesso no cancelamento retornará um 204 de sucesso sem qualquer conteúdo.
    *
    * @param {string} id
-   * @returns {Promise<CancelarCobrancaResponse>}
+   * @returns {Promise<number>}
    * @memberof Cobrancas
    */
-  public async cancelarCobranca (id: string): Promise<CancelarCobrancaResponse> {
+  public async cancelarCobranca (id: string): Promise<number> {
     try {
       const result = await axios.put(
         `${this.url}api-integration/charges/${id}/cancelation`,
@@ -153,7 +152,7 @@ class Cobrancas {
           }
         }
       )
-      return result.data
+      return result.status
     } catch (error) {
       throw new Error(error.response.data.error)
     }
