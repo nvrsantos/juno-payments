@@ -105,18 +105,6 @@ export interface ConsultarCobrancaResponse {
   }[]
 }
 
-export interface CancelarCobrancaResponse {
-  timestamp: string,
-  status: number,
-  error: string,
-  details: {
-    field: string,
-    message: string,
-    errorCode: string
-  }[]
-  path: string
-}
-
 /**
  * Gerar Cobrança Response
  *
