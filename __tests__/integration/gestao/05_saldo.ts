@@ -5,7 +5,8 @@ export function saldo (juno: Juno): void {
     test('Consulta Saldo', async (done) => {
       try {
         const result = await juno.gestao.saldo.consultarSaldo()
-        expect(result.balance).toBeTruthy()
+        
+        expect(result).toBeTruthy()
         done()
       } catch (error) {
         done(error)
