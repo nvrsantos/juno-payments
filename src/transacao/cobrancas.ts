@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { stringify } from 'query-string'
+// import { stringify } from 'query-string'
 import { Authentication } from '../authentication'
 import { GerarCobranca, QueryListarCobrancas } from '../types/interface'
 import {
@@ -81,7 +81,7 @@ class Cobrancas {
   public async listarCobrancas (query: QueryListarCobrancas): Promise<ListaCobrancaResponse> {
     try {
       const result = await axios.get(
-        `${this.url}api-integration/charges?${stringify(query)}`,
+        `${this.url}api-integration/charges?${JSON.stringify(query)}`,
         {
           headers: {
             ...(await this.auth.getTokenAcess()),
@@ -145,6 +145,7 @@ class Cobrancas {
     try {
       const result = await axios.put(
         `${this.url}api-integration/charges/${id}/cancelation`,
+        null,
         {
           headers: {
             ...(await this.auth.getTokenAcess()),
