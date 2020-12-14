@@ -54,7 +54,7 @@ class Juno {
     this.transacao = {
       cobrancas: new Cobrancas(this.auth, this.getUrl(), this.token),
       assinatura: new Assinatura(this.auth, this.getUrl(), this.token),
-      pagamentos: new Pagamentos(this.auth, this.getUrl(), this.publicToken, this.mode)
+      pagamentos: new Pagamentos(this.publicToken, this.mode)
     } as Transacao
   }
 
