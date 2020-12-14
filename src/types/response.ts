@@ -101,7 +101,7 @@ export interface ConsultarCobrancaResponse {
   _links: {
     self: {
       href: string
-      }
+    }
   }[]
 }
 
@@ -209,4 +209,90 @@ export interface ListarPlanosResponse {
       }[]
     }[]
   }
+}
+
+/**
+ * ConstultarPlanoResponse - @response
+ * 
+ * @export
+ * @interface ConstultarPlanoResponse
+ */
+export interface ConstultarPlanoResponse {
+  id: string,
+  createdOn: string,
+  name: string,
+  frequency: string,
+  status: "ACTIVE" | "INACTIVE",
+  amount: number,
+  _links: [
+    {
+      href: string
+    }
+  ]
+}
+
+/**
+ * CriarAssinaturaResponse - @response
+ * 
+ * @export
+ * @interface CriarAssinaturaResponse
+ */
+export interface CriarAssinaturaResponse {
+  id: string,
+  createdOn: string,
+  dueDay: string,
+  status: string,
+  startsOn: string,
+  nextBillingDate: string,
+  _links: {
+    self: {
+      href: string
+    }
+  }
+}
+
+/**
+ * ListarAssinaturasResponse - @response
+ * 
+ * @export
+ * @interface ListarAssinaturasResponse
+ */
+export interface ListarAssinaturasResponse {
+  _embedded: {
+    subscriptions: [
+      {
+        id: string,
+        createdOn: string,
+        dueDay: string,
+        status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+        startsOn: string,
+        nextBillingDate: string,
+        _links: [
+          {
+            href: string
+          }
+        ]
+      }
+    ]
+  }
+}
+
+/**
+ * ConsultarAssinaturaResponse - @response
+ * 
+ * @export
+ * @interface ConsultarAssinaturaResponse
+ */
+export interface ConsultarAssinaturaResponse {
+  id: string,
+  createdOn: string,
+  dueDay: string,
+  status: "ACTIVE" | "INACTIVE" | "CANCELED" | "COMPLETED",
+  startsOn: string,
+  nextBillingDate: string,
+  _links: [
+    {
+      href: string
+    }
+  ]
 }
